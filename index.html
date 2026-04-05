@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaultify | Secure Entry</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="locker.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="locker-wrapper" id="mainLocker">
+            <div class="input-group" style="margin-bottom: 20px;">
+                <label>IDENTITY REQUIRED</label>
+                <input type="text" id="loginUser" placeholder="ENTER USERNAME" autocomplete="off" 
+                       style="text-align: center; letter-spacing: 2px;">
+            </div>
+
+            <div class="locker-panel">
+                <div class="status-led" id="statusLed"></div>
+                
+                <div class="vault-screen">
+                    <div class="user-label">VAULT STATUS: <span id="displayStatus" style="color: var(--primary-orange);">LOCKED</span></div>
+                    <div class="pin-display" id="pinDisplay">----</div>
+                </div>
+
+                <div class="keypad">
+                    <button onclick="pressKey(1)">1</button>
+                    <button onclick="pressKey(2)">2</button>
+                    <button onclick="pressKey(3)">3</button>
+                    <button onclick="pressKey(4)">4</button>
+                    <button onclick="pressKey(5)">5</button>
+                    <button onclick="pressKey(6)">6</button>
+                    <button onclick="pressKey(7)">7</button>
+                    <button onclick="pressKey(8)">8</button>
+                    <button onclick="pressKey(9)">9</button>
+                    <button onclick="clearPin()" class="btn-c">C</button>
+                    <button onclick="pressKey(0)">0</button>
+                    <button onclick="verifyAccess()" class="btn-ok">OK</button>
+                </div>
+            </div>
+            <p class="reg-link" style="margin-top: 20px; color: #888;">
+                Not registered? <a href="register.html" style="color: var(--primary-orange); text-decoration: none;">Initialize Vault</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="vaultOverlay" class="vault-overlay">
+        <div class="vaultify-logo" id="finalLogo">
+            VAULT<span>IFY</span>
+        </div>
+        <div class="access-msg" id="accessMsg">ACCESS GRANTED</div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

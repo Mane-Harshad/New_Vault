@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+:root {
+    --primary-orange: #FF922B;
+    --vault-dark: #0a0a0b;
+    --panel-metal: linear-gradient(145deg, #232529, #17181b);
+    --display-green: #00FF41;
+    --white: #ffffff;
+    --shadow-locker: 0 30px 60px rgba(0,0,0,0.8);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--vault-dark);
+    color: var(--white);
+    min-height: 100vh; 
+    overflow-x: hidden; 
+}
+
+/* --- LIGHT MODE SUPREMACY: CONSOLIDATED MASTER OVERRIDES --- */
+body.light-mode { 
+    background-color: #f1f3f5 !important; 
+    color: #1a1a1b !important; 
+}
+
+/* 1. LAYOUT & SIDEBAR */
+body.light-mode .dash-container { background: #f8f9fa; }
+body.light-mode .sidebar { 
+    background: #ffffff !important; 
+    border-right: 1px solid #dee2e6 !important; 
+    box-shadow: 4px 0 15px rgba(0,0,0,0.03);
+}
+body.light-mode .nav-link { color: #5c636a !important; }
+body.light-mode .nav-link.active, 
+body.light-mode .nav-link:hover { 
+    background: rgba(255, 146, 43, 0.1) !important; 
+    color: var(--primary-orange) !important; 
+    font-weight: 800;
+}
+
+/* 2. CARD ELEVATION (Settings, Insights, Metrics) */
+body.light-mode .insight-card, 
+body.light-mode .deposit-card, 
+body.light-mode .metric-card, 
+body.light-mode .chart-wrapper,
+body.light-mode .ledger-card,
+body.light-mode .folder-card,
+body.light-mode .claim-row,
+body.light-mode .expiry-card,
+body.light-mode .settings-card,
+body.light-mode .rem-card,
+body.light-mode .claim-item-detailed { 
+    background: #ffffff !important; 
+    border: 1px solid #dee2e6 !important; 
+    color: #111112 !important; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 10px 20px rgba(0,0,0,0.05) !important;
+}
+
+/* FIX 1: Dashboard Active Claims (Force White Background & Dark Text) */
+body.light-mode .claim-item-detailed { background: #ffffff !important; color: #1a1a1b !important; }
+body.light-mode .claim-info strong { color: #1a1a1b !important; }
+body.light-mode .claim-info span { color: #6c757d !important; }
+
+/* FIX 2: Vault Folder Image Boxes & Text */
+body.light-mode .preview-box, 
+body.light-mode .visual-sleeve { background: #e9ecef !important; border: 1px solid #dee2e6; }
+body.light-mode .folder-card p { color: #1a1a1b !important; font-weight: 700; }
+body.light-mode .chip { background: #ffffff !important; color: #495057 !important; border: 1px solid #dee2e6 !important; }
+body.light-mode .chip.active { background: #fff4e6 !important; color: var(--primary-orange) !important; border-color: var(--primary-orange) !important; }
+
+/* 3. VAULT LEDGER: HIGH VISIBILITY */
+body.light-mode .vault-table thead th {
+    background: #212529 !important; /* Dark anchor header */
+    color: #ffffff !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.75rem;
+}
+body.light-mode .vault-table td {
+    color: #111112 !important; 
+    border-bottom: 1px solid #f1f3f5;
+    font-weight: 600;
+}
+
+/* 4. EXPIRY & STATUS PARAMETERS */
+/* Red Alert */
+body.light-mode .expiry-banner, 
+body.light-mode .expiry-card.status-red,
+body.light-mode .expiry-card.expired,
+body.light-mode .rem-card.urgent {
+    background: #fff5f5 !important;
+    border: 1px solid #ffc9c9 !important;
+    border-left: 5px solid #fa5252 !important;
+}
+body.light-mode .countdown, 
+body.light-mode .days-left-red,
+body.light-mode .status-red,
+body.light-mode #expDays,
+body.light-mode .expiry-card.status-red b { 
+    color: #e03131 !important; 
+    font-weight: 900 !important; 
+}
+
+/* FIX 3: Claims Radar Green Border & Reminders */
+body.light-mode .expiry-card { border-left: 6px solid #40c057 !important; }
+body.light-mode .rem-card { background: #ffffff !important; border-left: 4px solid #4dabf7 !important; color: #1a1a1b !important; }
+body.light-mode .rem-card p { color: #6c757d !important; }
+
+/* Green Alert & Verified */
+body.light-mode .tag-verified, 
+body.light-mode .status-green,
+body.light-mode .status-safe,
+body.light-mode .expiry-card:not(.expired) b {
+    background: #ebfbee !important;
+    color: #087f5b !important;
+    border: 1px solid #b2f2bb !important;
+    font-weight: 700;
+}
+
+/* 5. INPUTS & FORMS (Settings Fix) */
+body.light-mode .input-group input,
+body.light-mode .pro-input,
+body.light-mode .status-select,
+body.light-mode input[type="text"],
+body.light-mode input[type="number"] {
+    background: #ffffff !important;
+    border: 1px solid #ced4da !important;
+    color: #111112 !important;
+}
+
+body.light-mode .input-group label,
+body.light-mode .section-label,
+body.light-mode .metric-card label { 
+    color: #6c757d !important; 
+    font-weight: 800; 
+    text-transform: uppercase;
+}
+
+/* FIX 5: Settings Buttons & Toggle */
+body.light-mode .remove-btn, 
+body.light-mode .settings-card button:not(.save-btn, .logout-btn) {
+    background: #f8f9fa !important;
+    color: #495057 !important;
+    border: 1px solid #dee2e6 !important;
+}
+body.light-mode .slider { background-color: #dee2e6 !important; }
+body.light-mode .slider:before { background-color: #ffffff !important; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+body.light-mode input:checked + .slider { background-color: var(--primary-orange) !important; }
+
+/* 6. DRAWER & MODAL UI */
+body.light-mode .overview-drawer {
+    background: #ffffff !important;
+    border-left: 1px solid #dee2e6 !important;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.1) !important;
+}
+body.light-mode .drawer-header { border-bottom: 1px solid #f1f3f5; }
+
+/* FIX 4: Analytics Chart Labels visibility */
+body.light-mode .chart-wrapper h3 { color: #1a1a1b !important; }
+
+body.light-mode .desc-display,
+body.light-mode .modal-card { 
+    background: #f8f9fa !important; 
+    border: 1px solid #dee2e6 !important;
+    color: #212529 !important;
+}
+
+/* Slider Toggle Light Mode */
+body.light-mode .slider { background: #dee2e6; }
+body.light-mode .slider:before { background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+/* Ensure the toggle track is visible in light mode */
+body.light-mode .slider { 
+    background-color: #dee2e6 !important; 
+    border: 1px solid #ced4da !important; 
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05) !important;
+}
+
+body.light-mode .slider:before { 
+    background-color: #ffffff !important; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+}

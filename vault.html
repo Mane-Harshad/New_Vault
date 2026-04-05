@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vaultify | My Secure Vault</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="vault.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body class="dash-container"> 
+    
+    <aside class="sidebar">
+        <div class="brand">VAULT<span>IFY</span></div>
+        <nav class="side-nav">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="vault.html" class="nav-link active">My Vault</a>
+            <a href="claims.html" class="nav-link">Claim Tracker</a>
+            <a href="analytics.html" class="nav-link">Analytics</a>
+            <a href="settings.html" class="nav-link">Settings</a>
+        </nav>
+        <div class="user-profile">
+            <div class="user-avatar" id="userInitial">U</div>
+            <span id="userNameDisplay">HARRY</span>
+        </div>
+    </aside>
+
+    <main class="main-viewport">
+        <header class="dash-header">
+            <div class="search-wrapper">
+                <input type="text" id="vaultSearch" placeholder="Search product, vendor, or serial...">
+                <button class="scan-btn">SEARCH</button>
+            </div>
+            <div class="header-actions">
+                <input type="file" id="billInput" style="display: none;" accept="image/*,.pdf">
+                <button class="add-btn" onclick="triggerFileSelect()">+ NEW UPLOAD</button>
+            </div>
+        </header>
+
+        <div class="filter-row"></div>
+
+        <div class="vault-scroll-content">
+            <section class="dash-section">
+                <div class="section-header">
+                    <h3 class="section-label">RECENT DEPOSITS (TOP 3)</h3>
+                </div>
+                <div class="folder-grid" id="recentGrid"></div>
+            </section>
+
+            <section class="dash-section">
+                <div class="section-header">
+                    <h3 class="section-label">VAULT LEDGER (ALL ASSETS)</h3>
+                    <div class="sort-controls">
+                        <select id="vaultSort" onchange="sortVault(this.value)" style="background: #111; color: #fff; border: 1px solid #333; padding: 5px 10px; border-radius: 8px; font-size: 0.8rem; cursor: pointer;">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="priceHigh">Price: High to Low</option>
+                            <option value="priceLow">Price: Low to High</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ledger-card">
+                    <table class="vault-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Vendor</th>
+                                <th>Date</th>
+                                <th>Amount (₹)</th> <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vaultTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="overviewDrawer" class="overview-drawer"></div>
+    <div id="ocrModal" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Verify Extracted Data</h3>
+                <p>Edit details if PaddleOCR made any errors.</p>
+            </div>
+            <div class="modal-split">
+                <div class="modal-img-preview">
+                    <img id="ocrTempImg" src="" alt="OCR Preview">
+                </div>
+                <div class="modal-form">
+                    <div class="input-group">
+                        <label>Product Name</label>
+                        <input type="text" id="ocr_name">
+                    </div>
+                    <div class="input-group">
+                        <label>Vendor/Store</label>
+                        <input type="text" id="ocr_vendor">
+                    </div>
+                    <div class="input-group">
+                        <label>Purchase Date</label>
+                        <input type="date" id="ocr_date">
+                    </div>
+                    <div class="input-group">
+                        <label>Warranty (Months)</label>
+                        <input type="number" id="ocr_warranty" value="12">
+                    </div>
+                    <div class="input-group">
+                        <label>Total Amount (₹)</label>
+                        <input type="number" id="ocr_price" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="input-group">
+                        <label>Assign to Folder</label>
+                        <select id="ocr_category_select" onchange="checkNewCategory(this.value)">
+                            <option value="Electronics">Electronics</option>
+                            <option value="Amazon">Amazon</option>
+                            <option value="Furniture">Furniture</option>
+                            <option value="NEW">+ Create New Folder</option>
+                        </select>
+                        <input type="text" id="new_category_input" placeholder="Enter Folder Name" style="display:none; margin-top:5px;">
+                    </div>
+                    <div class="modal-btns">
+                        <button onclick="closeOCR()" class="btn-cancel">Discard</button>
+                        <button onclick="finalizeUpload()" class="btn-save">Save to Vault</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vault.js"></script>
+</body>
+</html>

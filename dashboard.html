@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vaultify | Command Center</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="main.js"></script>
+</head>
+<body class="dash-container">
+
+    <aside class="sidebar">
+        <div class="brand">VAULT<span>IFY</span></div>
+        <nav class="side-nav">
+            <a href="dashboard.html" class="nav-link active">Dashboard</a>
+            <a href="vault.html" class="nav-link">My Vault</a>
+            <a href="claims.html" class="nav-link">Claim Tracker</a>
+            <a href="analytics.html" class="nav-link">Analytics</a>
+            <a href="settings.html" class="nav-link">Settings</a>
+        </nav>
+        <div class="user-profile">
+            <div class="user-avatar" id="userInitial">U</div>
+            <span id="userNameDisplay">LOADING...</span>
+        </div>
+    </aside>
+
+    <main class="main-viewport">
+        <header class="dash-header">
+            <div class="search-wrapper">
+                <input type="text" id="globalSearch" placeholder="Search product, vendor, or serial...">
+                <button class="scan-btn">SEARCH</button>
+            </div>
+            <button class="add-btn">+ NEW UPLOAD</button>
+        </header>
+
+        <section class="dash-section">
+            <div class="section-header">
+                <h3>Insights Snapshot</h3>
+                <a href="analytics.html">Full Report →</a>
+            </div>
+            <div class="insights-grid">
+                <div class="insight-card"><small>Total Spent (2025)</small><h2 class="text-blue" id="statTotal">₹0</h2></div>
+                <div class="insight-card"><small>Top Category</small><h2 id="statCategory">---</h2></div>
+                <div class="insight-card"><small>Active Warranties</small><h2 id="statCount">0 Items</h2></div>
+            </div>
+        </section>
+
+        <section class="dash-section" id="expirySection">
+            <div class="section-header"><h3>Critical Expiries</h3></div>
+            <div class="expiry-banner">
+                <div class="expiry-content">
+                    <strong id="expName">---</strong>
+                    <p id="expDetail">---</p>
+                </div>
+                <div class="countdown" id="expDays">-- DAYS LEFT</div>
+            </div>
+        </section>
+
+        <section class="dash-section">
+            <div class="section-header">
+                <h3>Active Claims</h3>
+                <a href="claims.html">Track All →</a>
+            </div>
+            <div class="claim-item-detailed">
+                <div class="status-bar-yellow"></div>
+                <div class="claim-info">
+                    <div class="claim-top">
+                        <strong id="claimName">---</strong>
+                        <span class="badge-yellow" id="claimStatus">---</span>
+                    </div>
+                    <p id="claimMeta">Claim ID: #--- | Initiated: ---</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="dash-section">
+            <div class="section-header">
+                <h3>Recent Deposits</h3>
+                <a href="vault.html">View All Bills →</a>
+            </div>
+            <div class="deposits-flex" id="depositsContainer">
+                </div>
+        </section>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

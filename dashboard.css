@@ -1,0 +1,174 @@
+/* Layout Base */
+.dash-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    height: 100vh;
+    background: #080808;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Sidebar Refinement */
+.sidebar {
+    background: #111;
+    padding: 40px 25px;
+    border-right: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+}
+
+.brand { font-size: 1.6rem; font-weight: 900; letter-spacing: 2px; margin-bottom: 50px; }
+.brand span { color: #FF922B; }
+
+.side-nav { flex: 1; }
+.nav-link {
+    display: block; padding: 15px 0; color: #666;
+    text-decoration: none; font-weight: 600; transition: 0.3s;
+}
+.nav-link.active, .nav-link:hover { color: #FF922B; }
+
+.user-profile {
+    display: flex; align-items: center; gap: 12px;
+    padding-top: 20px; border-top: 1px solid #222;
+}
+.user-avatar { 
+    width: 35px; height: 35px; background: #FF922B; 
+    border-radius: 50%; display: grid; place-items: center; font-weight: bold;
+}
+
+/* Header & Search */
+.main-viewport { padding: 40px; overflow-y: auto; }
+.dash-header { display: flex; justify-content: space-between; margin-bottom: 40px; }
+
+.search-wrapper {
+    background: #151515; border: 1px solid #333;
+    border-radius: 12px; display: flex; width: 60%; overflow: hidden;
+}
+.search-wrapper input {
+    background: transparent; border: none; color: #fff; padding: 15px; flex: 1; outline: none;
+}
+.scan-btn { background: #fff; border: none; padding: 0 20px; font-weight: bold; cursor: pointer; }
+
+.add-btn {
+    background: #fff; color: #000; border: none; padding: 12px 25px;
+    border-radius: 8px; font-weight: 800; cursor: pointer;
+}
+
+/* Section Common */
+.dash-section { margin-bottom: 35px; }
+.section-header { display: flex; justify-content: space-between; margin-bottom: 15px; align-items: center; }
+.section-header h3 { font-size: 1.1rem; }
+.section-header a { color: #4dabf7; text-decoration: none; font-size: 0.9rem; }
+
+/* Insights Grid */
+.insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.insight-card { background: #151515; padding: 25px; border-radius: 16px; border: 1px solid #222; text-align: center; }
+.text-blue { color: #4dabf7; }
+
+/* Expiry Banner */
+.expiry-banner {
+    background: linear-gradient(90deg, #ff4b4b22 0%, #0000 100%);
+    border: 1px solid #ff4b4b44; border-left: 5px solid #ff4b4b;
+    padding: 20px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center;
+}
+.countdown { color: #ff4b4b; font-weight: 900; letter-spacing: 1px; }
+
+/* Deposit Cards (The ones you wanted updated) */
+.deposits-flex { display: flex; gap: 20px; }
+.deposit-card {
+    background: #151515; padding: 20px; border-radius: 15px;
+    border: 1px solid #222; flex: 1;
+}
+.deposit-card p { color: #888; font-size: 0.85rem; margin: 5px 0 12px 0; }
+.tag-verified {
+    background: #12b88622; color: #12b886; padding: 4px 12px;
+    border-radius: 20px; font-size: 0.75rem; font-weight: bold;
+}
+
+/* Claim Detailed */
+.claim-item-detailed {
+    background: #151515; display: flex; border-radius: 12px;
+    border: 1px solid #222; overflow: hidden;
+}
+.status-bar-yellow { width: 6px; background: #fcc419; }
+.claim-info { padding: 20px; flex: 1; }
+.claim-top { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.badge-yellow { color: #fcc419; font-size: 0.8rem; font-weight: bold; }
+
+/* Add/Update these specific classes in static/css/dashboard.css */
+
+.deposits-flex {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Prevents cards from smashing into each other */
+}
+
+.deposit-card {
+    background: #151515;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #222;
+    min-width: 280px; /* Ensures consistent size for dynamic data */
+    flex: 1;
+    transition: transform 0.3s ease;
+}
+
+.deposit-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-orange);
+}
+
+.badge-yellow { color: #fcc419; background: rgba(252, 196, 25, 0.1); padding: 4px 10px; border-radius: 5px; font-size: 0.75rem; }
+.status-bar-yellow { width: 6px; background: #fcc419; }
+
+/* Placeholder for empty database state */
+.dash-section:empty::after {
+    content: "No recent data found. Upload a bill to begin.";
+    color: #444;
+    font-size: 0.9rem;
+    display: block;
+    padding: 20px;
+}
+
+/* Update these specific sections in dashboard.css */
+
+.sidebar {
+    background: #111;
+    padding: 40px 25px;
+    border-right: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.nav-link {
+    display: block;
+    padding: 12px 15px;
+    color: #868e96;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+.nav-link.active, .nav-link:hover {
+    background: rgba(255, 146, 43, 0.1);
+    color: var(--primary-orange);
+}
+
+.deposits-flex {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Horizontal scroll if too many bills */
+    padding-bottom: 10px;
+}
+
+.deposit-card {
+    min-width: 280px;
+    background: #151515;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #222;
+    flex: 0 0 auto;
+}

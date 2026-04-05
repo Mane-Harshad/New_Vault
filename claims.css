@@ -1,0 +1,127 @@
+/* claims.css - Refined UI Build */
+
+.section-label { font-size: 0.8rem; color: #555; letter-spacing: 2px; margin-bottom: 20px; font-weight: 800; }
+
+/* EXPIRY RADAR */
+.expiry-radar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px; }
+.expiry-card { background: #111; padding: 20px; border-radius: 12px; border-left: 6px solid; }
+.status-green { border-left-color: #12b886; color: #12b886; }
+.status-orange { border-left-color: #fcc419; color: #fcc419; }
+.status-red { border-left-color: #fa5252; color: #fa5252; }
+.days-pill { margin-top: 10px; font-size: 0.75rem; font-weight: bold; color: #888; }
+
+/* REMINDERS */
+.reminder-flex { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 30px; }
+.rem-card { min-width: 280px; background: #1a1a1a; padding: 15px; border-radius: 10px; border-left: 4px solid #4dabf7; }
+.rem-card.urgent { border-left-color: #fa5252; }
+.rem-card p { font-size: 0.8rem; color: #888; margin-top: 5px; }
+
+/* ACTIVE BOARD */
+.claim-row { background: #111; padding: 18px; border-radius: 12px; display: flex; align-items: center; cursor: pointer; margin-bottom: 10px; border: 1px solid #222; transition: 0.2s; }
+.claim-row:hover { border-color: #FF922B; background: #161616; }
+.dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 15px; flex-shrink: 0; }
+.pending { background: #fcc419; box-shadow: 0 0 10px #fcc419; }
+.approved { background: #4dabf7; box-shadow: 0 0 10px #4dabf7; }
+.resolved { background: #12b886; box-shadow: 0 0 10px #12b886; }
+.rejected { background: #fa5252; box-shadow: 0 0 10px #fa5252; }
+
+/* Proper Alignment for Text in Rows */
+.claim-info { display: flex; flex-direction: column; justify-content: center; }
+.claim-info strong { color: #fff; font-size: 0.95rem; }
+.claim-info span { font-size: 0.75rem; color: #666; font-weight: bold; margin-top: 2px; text-transform: uppercase; }
+
+/* DRAWER SYSTEM */
+.overview-drawer {
+    position: fixed;
+    right: -450px; /* Slightly wider for better breathing room */
+    top: 0;
+    width: 400px;
+    height: 100%;
+    background: #0f0f0f; /* Darker background for contrast */
+    border-left: 1px solid #222;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+}
+
+.overview-drawer.active { right: 0; }
+
+/* Internal Drawer Spacing */
+.drawer-header { padding: 25px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; }
+.drawer-header h3 { color: #FF922B; margin: 0; font-size: 1.2rem; }
+.close-x { background: none; border: none; color: #888; font-size: 1.5rem; cursor: pointer; }
+
+.drawer-body { padding: 25px; }
+
+/* Drawer Content Styling */
+.work-meta label, .work-action label, .timeline label { 
+    display: block; 
+    font-size: 0.7rem; 
+    color: #555; 
+    letter-spacing: 1.5px; 
+    font-weight: 800; 
+    margin-bottom: 8px; 
+}
+
+.desc-display { 
+    background: #000; 
+    border: 1px solid #222; 
+    padding: 15px; 
+    border-radius: 8px; 
+    font-size: 0.85rem; 
+    color: #bbb; 
+    line-height: 1.5;
+}
+
+.work-action { margin-top: 30px; padding-top: 20px; border-top: 1px solid #222; }
+
+.status-select { 
+    width: 100%; 
+    padding: 12px; 
+    background: #000; 
+    color: #fff; 
+    border: 1px solid #333; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    outline: none;
+}
+.status-select:focus { border-color: #FF922B; }
+
+/* Doc Previews */
+.doc-preview-area { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 15px; }
+.doc-card { background: #1a1a1a; padding: 12px; border-radius: 10px; border: 1px solid #222; }
+.doc-card img { width: 100%; border-radius: 6px; margin-bottom: 10px; border: 1px solid #333; }
+.doc-card p { font-size: 0.7rem; color: #888; text-align: center; }
+
+/* Timeline */
+.timeline { margin-top: 40px; }
+.time-row { 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 12px 0; 
+    border-bottom: 1px solid #1a1a1a; 
+    font-size: 0.8rem; 
+}
+.time-row span { color: #666; }
+.time-row b { color: #FF922B; }
+
+/* Action Buttons */
+.btn-del { 
+    width: 100%; 
+    margin-top: 40px; 
+    background: rgba(250, 82, 82, 0.1); 
+    border: 1px solid #fa5252; 
+    color: #fa5252; 
+    padding: 14px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: bold;
+    transition: 0.2s;
+}
+.btn-del:hover { background: #fa5252; color: #fff; }
+
+/* MODAL */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; display: none; justify-content: center; align-items: center; }
+.modal-card { background: #111; width: 450px; padding: 30px; border-radius: 16px; border: 1px solid #333; }
+.pro-input { width: 100%; background: #000; border: 1px solid #333; color: #fff; padding: 12px; border-radius: 8px; margin-top: 10px; font-family: inherit; }

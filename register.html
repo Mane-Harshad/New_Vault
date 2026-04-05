@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaultify | Initialize Vault</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="locker.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="locker-panel registration-panel">
+            <h2 class="auth-title">VAULT <span>INITIALIZATION</span></h2>
+            <p class="auth-subtitle">Establish your secure credentials</p>
+
+            <div class="input-group">
+                <label>USERNAME</label>
+                <input type="text" id="regUser" placeholder="e.g. HARSHAD" autocomplete="off">
+            </div>
+
+            <div class="input-group">
+                <label>MASTER PIN (4 DIGITS)</label>
+                <input type="password" id="regPin" maxlength="4" placeholder="••••" autocomplete="off">
+            </div>
+
+            <button class="btn-vault-action" onclick="initializeVault()">
+                INITIALIZE CORE
+            </button>
+
+            <p class="auth-switch" style="margin-top: 20px; text-align: center; font-size: 0.8rem; color: #888;">
+                Already initialized? <a href="login.html" style="color: var(--primary-orange); text-decoration: none;">Access Vault</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="initOverlay" class="init-overlay">
+        <div class="scanning-bar"></div>
+        <div class="init-text">ENCRYPTING VAULT CORE... <span id="percent">0%</span></div>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>

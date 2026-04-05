@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vaultify | Settings</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="settings.css">
+    <script src="main.js"></script>
+</head>
+<body class="dash-container">
+
+    <aside class="sidebar">
+        <div class="brand">VAULT<span>IFY</span></div>
+        <nav class="side-nav">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="vault.html" class="nav-link">My Vault</a>
+            <a href="claims.html" class="nav-link">Claim Tracker</a>
+            <a href="analytics.html" class="nav-link">Analytics</a>
+            <a href="settings.html" class="nav-link active">Settings</a>
+        </nav>
+        <div class="user-profile">
+            <div class="user-avatar" id="sidebarAvatar">U</div>
+            <span id="userNameDisplay">HARRY</span>
+        </div>
+    </aside>
+
+    <main class="main-viewport">
+        <header class="dash-header">
+            <h2 class="page-title">System Settings</h2>
+        </header>
+
+        <section class="settings-grid">
+            <div class="settings-card">
+                <h3>Profile Management</h3>
+                <div class="profile-edit-zone">
+                    <div class="large-avatar" id="settingsAvatar">H</div>
+                    <div class="upload-controls">
+                        <label for="avatarUpload" class="upload-label">Upload New Photo</label>
+                        <input type="file" id="avatarUpload" hidden accept="image/*">
+                        <button class="remove-btn" onclick="removeAvatar()">Remove Photo</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Update Display Name</label>
+                    <input type="text" id="newNameInput" placeholder="Enter name...">
+                </div>
+                <button class="save-btn" onclick="saveProfileChanges()">Save Changes</button>
+            </div>
+
+            <div class="settings-card">
+                <h3>System Preferences</h3>
+                <div class="preference-item">
+                    <span>Appearance (Light/Dark Mode)</span>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-card logout-zone">
+                <h3>Session</h3>
+                <button class="logout-btn" onclick="handleLogout()">LOGOUT</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+/* static/css/locker.css */
+.locker-wrapper {
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+}
+
+.locker-panel {
+    background: var(--panel-metal);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: var(--shadow-locker), inset 0 1px 1px rgba(255,255,255,0.1);
+    width: 360px;
+    position: relative;
+}
+
+.status-led {
+    width: 10px; height: 10px; background: #ff4b4b;
+    border-radius: 50%; position: absolute; top: 20px; right: 20px;
+    box-shadow: 0 0 10px #ff4b4b;
+    transition: 0.3s;
+}
+
+.vault-screen {
+    background: #000;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 2px solid #1c1e22;
+    color: var(--display-green);
+    font-family: monospace;
+    text-shadow: 0 0 5px var(--display-green);
+}
+
+.pin-display { font-size: 2rem; letter-spacing: 12px; margin-top: 5px; }
+
+.keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+
+.keypad button {
+    height: 65px; width: 65px; border-radius: 50%; border: none;
+    background: #2a2d32; color: white; font-size: 1.2rem; font-weight: bold;
+    cursor: pointer; box-shadow: 0 4px 0 #111;
+    transition: 0.1s;
+}
+
+.keypad button:active { transform: translateY(3px); box-shadow: 0 1px 0 #111; background: var(--primary-orange); }
+
+/* --- CONVERGENCE ANIMATION --- */
+/* --- HIGH-INTENSITY CONVERGENCE ANIMATION --- */
+
+.vault-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, #1a1a1a 0%, #000 100%); /* Adds depth to the background */
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+/* The Beam Style - RE-ENGINEERED FOR SUPREMACY */
+.beam {
+    position: absolute;
+    width: 6px;             /* Made thicker */
+    height: 250px;          /* Made much longer for a "laser" look */
+    background: #fff;       /* White core for realistic laser intensity */
+    border-radius: 100px;
+    opacity: 0; 
+    will-change: top, left, opacity, transform;
+    pointer-events: none;
+    
+    /* Triple layered glow for massive visibility */
+    box-shadow: 
+        0 0 10px #fff, 
+        0 0 30px var(--primary-orange), 
+        0 0 60px var(--primary-orange),
+        0 0 100px var(--primary-orange); 
+    
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* The Logo Appearance - CRITICAL IMPACT */
+.vaultify-logo {
+    font-size: 5rem;        /* Slightly larger */
+    font-weight: 900;
+    letter-spacing: 15px;   /* Increased for premium feel */
+    color: white;
+    opacity: 0;
+    transform: scale(0.3);  /* Starts smaller for a bigger "pop" */
+    
+    /* Added glow to the logo itself so it doesn't look flat */
+    /* text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px var(--primary-orange); */
+    
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+}
+
+.vaultify-logo span {
+    color: var(--primary-orange);
+    /* text-shadow: 0 0 30px var(--primary-orange); */
+}
+
+/* ACCESS GRANTED Message */
+.access-msg {
+    position: absolute;
+    bottom: 15%;
+    color: var(--display-green);
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 8px;
+    opacity: 0;
+    /* text-shadow: 0 0 10px var(--display-green); */
+    transition: all 0.5s ease;
+}
+
+.vault-screen.shake-error {
+    animation: shake 0.4s;
+    border-color: #ff4b4b !important;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+.beam {
+    /* Ensure hardware acceleration for smooth laser movement */
+    will-change: top, left, opacity, transform;
+    pointer-events: none;
+}
+
+/* static/css/auth.css Addition */
+
+.registration-panel {
+    width: 420px;
+    text-align: left;
+}
+
+.auth-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.auth-title span { color: var(--primary-orange); }
+
+.auth-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--primary-orange);
+    letter-spacing: 1px;
+}
+
+.input-group input {
+    width: 100%;
+    background: #000;
+    border: 2px solid #2a2d32;
+    padding: 15px;
+    border-radius: 8px;
+    color: var(--display-green);
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 10px rgba(255, 146, 43, 0.2);
+}
+
+.btn-vault-action {
+    width: 100%;
+    background: var(--primary-orange);
+    color: #000;
+    border: none;
+    padding: 18px;
+    border-radius: 8px;
+    font-weight: 900;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(255, 146, 43, 0.3);
+    transition: var(--transition);
+}
+
+.btn-vault-action:hover {
+    transform: translateY(-2px);
+    background: #ff9d42;
+}
+
+/* Initialization Overlay */
+.init-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: #000; z-index: 10000; display: none;
+    flex-direction: column; justify-content: center; align-items: center;
+}
+
+.scanning-bar {
+    width: 300px; height: 4px; background: #1a1b1e;
+    border-radius: 2px; position: relative; overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.scanning-bar::after {
+    content: ''; position: absolute; left: -50%; width: 50%; height: 100%;
+    background: var(--display-green);
+    box-shadow: 0 0 15px var(--display-green);
+    animation: scan 1.5s infinite;
+}
+
+@keyframes scan {
+    from { left: -50%; }
+    to { left: 100%; }
+}
+
+.init-text { color: var(--display-green); font-family: monospace; letter-spacing: 2px; }

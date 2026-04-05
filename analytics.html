@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vaultify | Intelligence & Analytics</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="analytics.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dash-container">
+
+    <aside class="sidebar">
+        <div class="brand">VAULT<span>IFY</span></div>
+        <nav class="side-nav">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="vault.html" class="nav-link">My Vault</a>
+            <a href="claims.html" class="nav-link">Claim Tracker</a>
+            <a href="analytics.html" class="nav-link active">Analytics</a>
+            <a href="settings.html" class="nav-link">Settings</a>
+        </nav>
+        <div class="user-profile">
+            <div class="user-avatar" id="userInitial">U</div>
+            <span id="userNameDisplay">LOADING...</span>
+        </div>
+    </aside>
+
+    <main class="main-viewport">
+        <header class="dash-header">
+            <h2 class="page-title">Spending & Warranty Intelligence</h2>
+        </header>
+
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <label>TOTAL INVESTMENT</label>
+                <h2 id="statTotalSpent">₹0</h2>
+            </div>
+            <div class="metric-card">
+                <label>TOP CATEGORY</label>
+                <h2 id="statTopCategory">---</h2>
+            </div>
+            <div class="metric-card">
+                <label>ACTIVE WARRANTIES</label>
+                <h2 id="statActiveWarranty">0</h2>
+            </div>
+            <div class="metric-card">
+                <label>OPEN CLAIMS</label>
+                <h2 id="statOpenClaims">0</h2>
+            </div>
+        </section>
+
+        <section class="charts-container">
+            <div class="chart-wrapper full-width">
+                <h3>Monthly Spending Trend</h3>
+                <canvas id="monthlyTrendChart"></canvas>
+            </div>
+
+            <div class="chart-grid-2">
+                <div class="chart-wrapper">
+                    <h3>Vendor-wise Spending</h3>
+                    <canvas id="vendorPieChart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <h3>Warranty Status: Active vs Expired</h3>
+                    <canvas id="warrantyBarChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-wrapper full-width">
+                <h3>Category-wise Expense Distribution</h3>
+                <canvas id="categoryBarChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script src="analytics.js"></script>
+</body>
+</html>
